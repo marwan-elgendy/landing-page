@@ -17,7 +17,9 @@
  * Define Global Variables
  * 
 */
-
+let sections = document.querySelectorAll('section .landing__container h2');
+let Nav = document.querySelector('#nav');
+const Unlist = document.querySelector('#navbar__list');
 
 /**
  * End Global Variables
@@ -34,6 +36,14 @@
 */
 
 // build the nav
+
+  for(section of sections){
+      let list_item = document.createElement('li');
+      list_item.innerHTML = `<a href="">${section.innerHTML}</a>`;
+      Unlist.appendChild(list_item);
+  }
+
+
 
 
 // Add class 'active' to section when near top of viewport
@@ -53,5 +63,7 @@
 // Scroll to section on link click
 
 // Set sections as active
+
+
 
 
