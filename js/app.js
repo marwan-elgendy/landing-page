@@ -20,8 +20,11 @@
 let sections = document.querySelectorAll('section');
 let Nav = document.querySelector('nav');
 const Unlist = document.querySelector('#navbar__list');
-var scrollpos = window.scrollY;
-let Sections_div = document.querySelectorAll('section div');
+let scrollpos = window.scrollY;
+let header = document.querySelector('header');
+let isScrolling;
+let toTop = document.querySelector('#toTop');
+
 
 /**
  * End Global Variables
@@ -45,28 +48,25 @@ let Sections_div = document.querySelectorAll('section div');
       Unlist.appendChild(list_item);
     }
     
-
-    let links = document.querySelectorAll('#navbar__list li a');
     
-
-
-
-
-
     
     
     
     // Add class 'active' to section when near top of viewport
+
+    let list_items = document.querySelectorAll('#navbar__list li');
     
     window.addEventListener('scroll', function(){ 
-        for(section of sections){
+        for(let i = 0; i < sections.length ; i++){
             scrollpos = window.scrollY;
             
-            if(scrollpos >= section.offsetTop * 0.7  && scrollpos <= section.offsetTop + section.offsetHeight*0.6){
-                section.classList.add("your-active-class");
+            if(scrollpos >= sections[i].offsetTop * 0.7  && scrollpos <= sections[i].offsetTop + sections[i].offsetHeight*0.6){
+                sections[i].classList.add("your-active-class");
+                list_items[i].classList.add("active");
             }
             else {
-                section.classList.remove("your-active-class");
+                sections[i].classList.remove("your-active-class");
+                list_items[i].classList.remove("active");
             }
         }
     });
@@ -76,6 +76,9 @@ let Sections_div = document.querySelectorAll('section div');
     
     
     // Scroll to anchor ID using scrollTO event
+
+    // Declare links variable after Dynamically creating the nav
+    let links = document.querySelectorAll('#navbar__list li a');
     
         for(let i = 0; i < links.length ; i++){
             links[i].addEventListener('click', (e) => {
@@ -89,6 +92,43 @@ let Sections_div = document.querySelectorAll('section div');
         }
 
 
+    // Hide the Navbar when user is not scrolling
+   
+    window.addEventListener('scroll', function (e) {
+        
+        header.style.opacity = 1;
+        window.clearTimeout( isScrolling );
+    
+        // Set a timeout to run after scrolling ends
+        isScrolling = setTimeout(function() {
+            header.style.opacity = 0;
+        }, 2000);
+    
+    });
+
+    
+    // Show toTop button on scroll
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            toTop.style.display = "block";
+        } else {
+            toTop.style.display = "none";
+        }
+        }
+
+        // Click event on toTop button
+        toTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        })
+
+
 /**
  * End Main Functions
  * Begin Events
@@ -100,20 +140,3 @@ let Sections_div = document.querySelectorAll('section div');
 // Scroll to section on link click
 
 // Set sections as active
-
-// $(window).scroll(function(){
-
-//     $('section').each(function() {
-//         if($(window).scrollTop() >= $(this).offset().top + $(this).height() || $(window).scrollTop() < $(this).offset().top)
-//             $(this).removeClass('your-active-class');
-//         else
-//             $(this).addClass('your-active-class');
-//     });
-
-// });
-
-
-
-
-
-

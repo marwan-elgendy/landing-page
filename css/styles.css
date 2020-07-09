@@ -74,19 +74,29 @@ section {
     text-align: right;
 }
 
-.active {
-    font-family: 'Droid Sans', serif;
-    font-size: 14px;
-    color: #fff;
-    text-decoration: none;
-    line-height: 50px;
+.active{
+    background-color: rgb(37, 37, 37);
+    border-radius: 55px;
   }
 
-.navbar__menu li {
-    display: inline-block;
-    padding: 0 20px;
-    color: #000;
+  
+  
+  
+  .navbar__menu li {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #000;
+    }
+    
+    .navbar__menu li:hover {
+      background-color: rgb(37, 37, 37);
+      border-radius: 55px;
+    }
+
+.navbar__menu li a{
+    color: #fff ;
 }
+
 
 .navbar__menu li > a {
     text-decoration: none;
@@ -126,6 +136,7 @@ section {
     top: 0;
     width: 100%;
     z-index: 5;
+    transition: opacity 0.8s;
     
 }
 
@@ -253,3 +264,30 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
+ /* To top button */
+
+
+ #toTop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #2D3542; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 50px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #toTop:hover {
+    background-color: rgb(37, 37, 37); /* Add a dark-grey background on hover */
+  }
+
+  .arrow{
+      width: 27px;
+  }
