@@ -2,12 +2,29 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Introduction](#Introduction)
+* [How to run locally](#How-to-run-locally)
+* [Dependencies](#Dependencies)
 
-## Instructions
+## Introduction
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This a Simple Landing page project that uses **JavaScript** to Dynamically build the navigation bar and update it whenever a new Section is created in the website.
+I also added some coll features to it:
 
-To get started, open `js/app.js` and start building out the app's functionality
+* The navigation bar gets hidden if the user is not scrolling, i used a smooth transition for hiding and showing to make it better.
+* Added a scroll to top button that only is visible when the user scrolls past the top of the page.
+* Made the navigation bar show which section is currently active.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## How to run locally
+
+You can run this project locally by clonning it:
+```
+$ git clone https://github.com/marwan-elgendy/landing-page.git
+```
+
+## Dependencies 
+
+In this project i used:
+
+* Bootstrap
+* jQuery
